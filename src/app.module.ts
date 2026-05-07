@@ -2,13 +2,21 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './users/users.module';
-import { UserRepository } from './users/users.repository';
 import { DoctorModule } from './doctors/doctors.module';
-import { DoctorsRepository } from './doctors/doctors.repository';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [UserModule, DoctorModule],
+  imports: [UserModule, DoctorModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      database: 'teappbd',
+      username: 'gabrielbrunetto',
+      autoLoadEntities: true,
+      synchronize: true
+    })
+  ],
   controllers: [AppController, ],
-  providers: [AppService, UserRepository, DoctorsRepository],
+  providers: [AppService],
 })
 export class AppModule {}
