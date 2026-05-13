@@ -16,4 +16,7 @@ export class UserService{
         return this.repo.save(userData)
     }
 
+    async deleteUser(id){
+        this.repo.delete(id)
+    }
 }
