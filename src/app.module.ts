@@ -9,11 +9,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [UserModule, DoctorModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      database: 'teappbd',
-      username: 'gabrielbrunetto',
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT || '5432'),
+      database: process.env.DB_NAME || 'teappbd',
+      username: process.env.DB_USERNAME || 'postgres',
+      password: process.env.DB_PASSWORD || '',
       autoLoadEntities: true,
-      synchronize: true
+      synchronize: true,
     })
   ],
   controllers: [AppController, ],
