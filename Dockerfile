@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-WORKDIR /teapp-backend
+WORKDIR /teapp
 
 COPY package*.json ./
 
