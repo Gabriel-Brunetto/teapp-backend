@@ -2,9 +2,6 @@ import { IsEmail, isNotEmpty, IsNotEmpty, IsUUID } from "class-validator";
 
 export class DoctorDTO{
 
-    @IsUUID('4')
-    id: string
-
     @IsEmail()
     email: string
 
@@ -12,5 +9,5 @@ export class DoctorDTO{
     name: string
 
     @IsNotEmpty()
-    password: string
+    crm: string
 }
