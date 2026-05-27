@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixa o código
+        uses: actions/checkout@v3
+
+      - name: Configura o Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: [18,20,25]
+
+      - name: Instala dependências
+        run: npm install
+
+      - name: Roda o build
+        run: npm run build
