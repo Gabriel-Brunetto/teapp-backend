@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Patch, Body, Param} from "@nestjs/common";
+import { Controller, Get, Post, Delete, Patch, Body, Param, ParseUUIDPipe} from "@nestjs/common";
 import { CreateUserDTO } from "./dto/user.dto";
 import { UserService } from "./user.service";
 
@@ -19,7 +19,7 @@ export class UserController{
 
     //O : antes do nome avisa o Nest: "isso aqui não é texto fixo, é uma variável"
     @Delete(':id')
-    async deleteUser(@Param('id') id:string){
+    async deleteUser(@Param('id', ParseUUIDPipe) id:string){
         await this.service.deleteUser(id)
         return {message: "Usuario " + id + " Deletado com sucesso" }
     }
