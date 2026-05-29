@@ -19,4 +19,8 @@ export class DoctorService{
     async deleteDoctor(id){
         this.repo.delete(id)
     }
+
+    async listDoctorByID(id){
+        return this.repo.findOne({where: {id}})
+    }
 }

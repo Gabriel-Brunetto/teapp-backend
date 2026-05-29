@@ -20,4 +20,8 @@ export class UserService{
     async deleteUser(id){
         this.repo.delete(id)
     }
+
+    async listUserById(id){
+        return this.repo.findOne({where: {id}})
+    }
 }

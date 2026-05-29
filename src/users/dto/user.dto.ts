@@ -11,6 +11,4 @@ export class CreateUserDTO{
     @MinLength(6, {message: 'The minimun length is 6 caracters '})
     password: string;
 
-    @MinLength(6, {message: 'The minimun length is 6 caracters '})
-    confirmPassword: string;
 }

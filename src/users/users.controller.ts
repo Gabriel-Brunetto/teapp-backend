@@ -12,6 +12,11 @@ export class UserController{
         return this.service.listUsers();
     }
 
+    @Get(':id')
+    async listUserById(@Param('id') id:string){
+        return this.service.listUserById(id);
+    }
+
     @Post()
     async createUser(@Body() userData : CreateUserDTO){
         return this.service.createUser(userData);
