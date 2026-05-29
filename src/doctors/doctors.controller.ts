@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Delete, Param } from "@nestjs/common";
+import { Controller, Post, Body, Get, Delete, Param, ParseUUIDPipe } from "@nestjs/common";
 import { DoctorDTO } from "./dto/doctor.dto";
 import { DoctorService } from "./doctors.service";
 
@@ -17,9 +17,14 @@ export class DoctorsController{
     async listDoctor(){
         return this.service.listDoctor();
     }
+    
+    @Get(':id')
+    async listDoctorByID(@Param('id') id:string){
+        return this.service.listDoctorByID(id)
+    }
 
     @Delete(':id')
-    async deleteDoctor(@Param('id') id:string){
+    async deleteDoctor(@Param('id', ParseUUIDPipe) id:string){
         this.service.deleteDoctor(id)
     }
 
