@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { UserModule } from './users/users.module';
 import { DoctorModule } from './doctors/doctors.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TreatmentsModule } from './treatments/treatments.module';
 
 @Module({
-  imports: [UserModule, DoctorModule,
+  imports: [UserModule, DoctorModule,TreatmentsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST || 'localhost',
@@ -18,7 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     })
   ],
-  controllers: [AppController, ],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
