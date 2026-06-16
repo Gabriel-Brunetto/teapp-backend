@@ -27,6 +27,4 @@ export class DoctorsController{
     async deleteDoctor(@Param('id', ParseUUIDPipe) id:string){
         this.service.deleteDoctor(id)
     }
-
-
 }
