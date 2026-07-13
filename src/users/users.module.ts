@@ -1,3 +1,4 @@
+// src/users/users.module.ts
 import { Module } from "@nestjs/common";
 import { UserController } from "./users.controller";
 import { UserService } from "./user.service";
@@ -7,6 +8,7 @@ import { Users } from "./user.entity";
 @Module({
     imports: [TypeOrmModule.forFeature([Users])],
     controllers: [UserController],
-    providers: [UserService]
+    providers: [UserService],
+    exports: [UserService], // <-- adiciona essa linha
 })
-export class UserModule{}
+export class UserModule {}

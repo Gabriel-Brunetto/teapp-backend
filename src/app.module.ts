@@ -5,9 +5,10 @@ import { UserModule } from './users/users.module';
 import { DoctorModule } from './doctors/doctors.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TreatmentsModule } from './treatments/treatments.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [UserModule, DoctorModule,TreatmentsModule,
+  imports: [UserModule, DoctorModule,TreatmentsModule,AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST || 'localhost',
