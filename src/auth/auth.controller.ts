@@ -5,7 +5,7 @@ import { sign } from "crypto";
 
 @Controller('/auth')
 export class AuthController{
-    constructor(private readonly authService: AuthService){}
+    constructor(private authService: AuthService){}
 
     @HttpCode(HttpStatus.OK)
     @Post('login')
