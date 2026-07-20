@@ -8,13 +8,11 @@ export class UserController{
 
     constructor(private service : UserService){}
 
-    @UseGuards(AuthGuard)
     @Get()
     async listUser(){
         return this.service.listUsers();
     }
 
-    @UseGuards(AuthGuard)
     @Get(':id')
     async listUserById(@Param('id') id:string){
         return this.service.listUserById(id);
